@@ -87,6 +87,7 @@ def scan(num, min_angle=-60, max_angle=60, step=20):
 
     while current_angle <= max_angle:
 
+        global last_color
         color = last_color
         if color == "GREEN":
             print("Green detected by color sensor - obstacle present. Taking evasive action.")
@@ -95,6 +96,7 @@ def scan(num, min_angle=-60, max_angle=60, step=20):
                 continue
 
         # Step right
+        last_color = None
         turn_relative(step)
         current_angle += step
 
